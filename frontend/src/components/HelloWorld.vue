@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <h1>{{ message }} </h1>
     <div class="title">
       <img class="logo" src="../assets/logo.png" height="150">
       <h1 class="h1">
@@ -31,7 +32,7 @@
   </div>
 </template>
 
-<script>
+<!--script>
 export default {
   name: 'HelloWorld',
   data() {
@@ -82,7 +83,8 @@ export default {
     },
   },
 };
-</script>
+</script-->
+<script src="./HelloWorld.js"></script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
