@@ -4,7 +4,7 @@ import Vue from 'vue';
 Vue.use(Vuex);
 
 const state = {
-  message: 'Hello starschema kaja app',
+  message: 'Lunch Finder',
 };
 
 export default new Vuex.Store({

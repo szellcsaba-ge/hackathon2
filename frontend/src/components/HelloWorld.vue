@@ -1,10 +1,9 @@
 <template>
   <div class="hello">
-    <h1>{{ message }} </h1>
     <div class="title">
       <img class="logo" src="../assets/logo.png" height="150">
       <h1 class="h1">
-        {{ msg }}
+        {{ message }}
       </h1>
     </div>
     <GmapMap
