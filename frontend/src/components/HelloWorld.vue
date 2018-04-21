@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <h1>{{ message }} </h1>
     <div class="title">
       <img class="logo" src="../assets/logo.png" height="150">
       <h1 class="h1">
@@ -21,8 +22,8 @@
       />
       <GmapInfoWindow
         :options="infoOptions"
-        :position="infoWindowPos" 
-        :opened="infoWinOpen" 
+        :position="infoWindowPos"
+        :opened="infoWinOpen"
         @closeclick="infoWinOpen=false"
       >
         {{ infoContent }}
@@ -31,50 +32,7 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'HelloWorld',
-  data() {
-    return {
-      center: { lat:47.540252, lng:19.070899 },
-      msg: 'Lunch finder',
-      markers: [
-        {
-          position: { lat: 47.540252, lng: 19.070899 },
-          infoText: "Itt a Starschema!"
-        }
-      ],
-      infoContent: '',
-      infoWindowPos: null,
-      infoWinOpen: false,
-      currentMidx: null,
-      infoOptions: {
-        pixelOffset: {
-          width: 0,
-          height: -35
-        }
-      },
-    };
-  },
-  methods: {
-    toggleInfoWindow: function (marker, idx) {
-      console.log(marker);
-      this.infoWindowPos = marker.position;
-      this.infoContent = marker.infoText;
-
-      //check if its the same marker that was selected if yes toggle
-      if (this.currentMidx == idx) {
-        this.infoWinOpen = !this.infoWinOpen;
-      }
-      //if different marker set infowindow to open and reset current marker idx
-      else {
-        this.infoWinOpen = true;
-        this.currentMidx = idx;
-      }
-    }
-  }
-};
-</script>
+<script src="./HelloWorld.js"></script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
