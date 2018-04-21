@@ -2,6 +2,10 @@
 
 > Lunch finder
 
+## Google Maps api key
+
+    AIzaSyDKL9ovBXaSjReEqgNVbjoF0HaogaM3cZ8
+
 ## Build Setup
 
 ``` bash
