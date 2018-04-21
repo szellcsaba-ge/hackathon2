@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     ...mapActions(['setMessage', 'getPlaces']),
-    toggleInfoWindow: (marker, idx) => {
+    toggleInfoWindow(marker, idx) {
       this.infoWindowPos = marker.position;
       this.infoContent = marker.infoText;
 
