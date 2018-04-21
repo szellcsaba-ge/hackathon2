@@ -12,13 +12,6 @@ export default {
       },
       msg: 'Lunch finder',
       markers: [
-        {
-          position: {
-            lat: 47.540252,
-            lng: 19.070899,
-          },
-          infoText: 'Itt a Starschema!',
-        },
       ],
       infoContent: '',
       infoWindowPos: null,
@@ -31,6 +24,9 @@ export default {
         },
       },
     };
+  },
+  mounted() {
+    this.loadPlaces();
   },
   computed: {
     ...mapState(['message']),
@@ -50,6 +46,16 @@ export default {
         this.infoWinOpen = true;
         this.currentMidx = idx;
       }
+    },
+    loadPlaces() {
+      this.$http.get('http://localhost/api/v1/sample.json').then((data, status, request) => {
+        data.body.places.map((place, index, arr) => {
+          this.markers.push({
+            position: { lat: place.latitude, lng: place.longitude },
+            infoText: place.place_name,
+          });
+        });
+      });
     },
   },
 };

@@ -9,7 +9,7 @@ const state = {
 };
 
 const actions = {
-  setMessage({ commit }, data) {
+  setMessag({ commit }, data) {
     commit('setmessage', data);
   },
 };
