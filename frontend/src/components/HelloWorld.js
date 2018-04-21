@@ -1,5 +1,5 @@
 import store from '../store/store';
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default {
   store,
@@ -35,7 +35,11 @@ export default {
   computed: {
     ...mapState(['message']),
   },
+  created() {
+    this.setMessage('ezt mar actionon keresztul settelem');
+  },
   methods: {
+    ...mapActions(['setMessage']),
     toggleInfoWindow: (marker, idx) => {
       this.infoWindowPos = marker.position;
       this.infoContent = marker.infoText;
