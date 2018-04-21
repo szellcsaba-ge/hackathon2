@@ -7,7 +7,7 @@
       </h1>
     </div>
     <GmapMap
-      v-if="markes.length > 0"
+      v-if="places.length > 0"
       :center="center"
       :zoom="16"
       map-type-id="roadmap"
@@ -15,7 +15,7 @@
     >
       <GmapMarker
         :key="index"
-        v-for="(m, index) in markers"
+        v-for="(m, index) in places"
         :position="m.position"
         :clickable="true"
         @click="toggleInfoWindow(m, index)"

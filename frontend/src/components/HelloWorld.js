@@ -33,7 +33,7 @@ export default {
     ...mapState(['message', 'places']),
   },
   created() {
-    this.setMessage('ezt mar actionon keresztul settelem');
+    this.setMessage('Lunch Finder');
   },
   methods: {
     ...mapActions(['setMessage', 'getPlaces']),
