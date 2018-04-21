@@ -1,6 +1,21 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <GmapMap
+      :center="{lat:47.540252, lng:19.070899}"
+      :zoom="16"
+      map-type-id="terrain"
+      style="width: 100%; height: 500px"
+    >
+      <GmapMarker
+        :key="index"
+        v-for="(m, index) in markers"
+        :position="m.position"
+        :clickable="true"
+        :draggable="true"
+        @click="center=m.position"
+      />
+    </GmapMap>
   </div>
 </template>
 
@@ -9,7 +24,7 @@ export default {
   name: 'HelloWorld',
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App',
+      msg: 'Lunch finder',
     };
   },
 };
