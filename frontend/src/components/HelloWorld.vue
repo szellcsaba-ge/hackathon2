@@ -21,8 +21,8 @@
       />
       <GmapInfoWindow
         :options="infoOptions"
-        :position="infoWindowPos" 
-        :opened="infoWinOpen" 
+        :position="infoWindowPos"
+        :opened="infoWinOpen"
         @closeclick="infoWinOpen=false"
       >
         {{ infoContent }}
@@ -36,13 +36,19 @@ export default {
   name: 'HelloWorld',
   data() {
     return {
-      center: { lat:47.540252, lng:19.070899 },
+      center: {
+        lat: 47.540252,
+        lng: 19.070899,
+      },
       msg: 'Lunch finder',
       markers: [
         {
-          position: { lat: 47.540252, lng: 19.070899 },
-          infoText: "Itt a Starschema!"
-        }
+          position: {
+            lat: 47.540252,
+            lng: 19.070899,
+          },
+          infoText: 'Itt a Starschema!',
+        },
       ],
       infoContent: '',
       infoWindowPos: null,
@@ -51,28 +57,24 @@ export default {
       infoOptions: {
         pixelOffset: {
           width: 0,
-          height: -35
-        }
+          height: -35,
+        },
       },
     };
   },
   methods: {
-    toggleInfoWindow: function (marker, idx) {
-      console.log(marker);
+    toggleInfoWindow: (marker, idx) => {
       this.infoWindowPos = marker.position;
       this.infoContent = marker.infoText;
 
-      //check if its the same marker that was selected if yes toggle
-      if (this.currentMidx == idx) {
+      if (this.currentMidx === idx) {
         this.infoWinOpen = !this.infoWinOpen;
-      }
-      //if different marker set infowindow to open and reset current marker idx
-      else {
+      } else {
         this.infoWinOpen = true;
         this.currentMidx = idx;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
