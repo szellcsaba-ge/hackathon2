@@ -24,11 +24,29 @@
         :options="infoOptions"
         :position="infoWindowPos"
         :opened="infoWinOpen"
-        @closeclick="infoWinOpen=false"
+        @closeclick="closeInfoWindow()"
       >
         {{ infoContent }}
       </GmapInfoWindow>
     </GmapMap>
+    <div
+      v-if="currentPlace && currentPlace.infoText"
+    >
+      <el-table
+        :data="[currentPlace]"
+      >
+        <el-table-column
+        prop="infoText"
+        label="Név"
+        width="180">
+        </el-table-column>
+        <el-table-column
+        prop="address"
+        label="address"
+        width="300">
+        </el-table-column>
+      </el-table>
+    </div>
   </div>
 </template>
 

@@ -8,7 +8,8 @@ Vue.use(VueResource);
 
 const state = {
   message: 'Lunch Finder',
-  places: []
+  places: [],
+  currentPlace: {}
 };
 
 const actions = {
@@ -22,10 +23,21 @@ const actions = {
         markers.push({
           position: { lat: place.latitude, lng: place.longitude },
           infoText: place.place_name,
+          address: place.address,
+          images: place.images,
+          rating: place.rating,
+          tags: place.tags,
         });
       });
       commit('setPlaces', markers);
     });
+  },
+  openList({ commit }, id) {
+      commit('setCurrentObject', id);
+      
+  },
+  closeList({ commit }) {
+    commit('clearCurrentObject');
   }
 };
 
@@ -35,6 +47,12 @@ const mutations = {
   },
   setPlaces(state, data) {
     state.places = data;
+  },
+  setCurrentObject(state, id) {
+    state.currentPlace = state.places[id];
+  },
+  clearCurrentObject(state) {
+    state.currentPlace = {};
   }
 };
 

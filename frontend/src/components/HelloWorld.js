@@ -27,16 +27,15 @@ export default {
   },
   mounted() {
     this.getPlaces();
-    // this.loadPlaces();
   },
   computed: {
-    ...mapState(['message', 'places']),
+    ...mapState(['message', 'places', 'currentPlace']),
   },
   created() {
     this.setMessage('Lunch Finder');
   },
   methods: {
-    ...mapActions(['setMessage', 'getPlaces']),
+    ...mapActions(['setMessage', 'getPlaces', 'openList', 'closeList']),
     toggleInfoWindow(marker, idx) {
       this.infoWindowPos = marker.position;
       this.infoContent = marker.infoText;
@@ -46,17 +45,13 @@ export default {
       } else {
         this.infoWinOpen = true;
         this.currentMidx = idx;
+        this.openList(idx);
       }
     },
-    loadPlaces() {
-      /* this.$http.get('http://localhost/api/v1/sample.json').then((data, status, request) => {
-        data.body.places.map((place) => {
-          this.markers.push({
-            position: { lat: place.latitude, lng: place.longitude },
-            infoText: place.place_name,
-          });
-        });
-      }); */
+    closeInfoWindow() {
+      this.infoWinOpen = false;
+      this.currentMidx = null;
+      this.closeList();
     },
   },
 };
