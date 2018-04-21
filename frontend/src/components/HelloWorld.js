@@ -26,16 +26,17 @@ export default {
     };
   },
   mounted() {
-    this.loadPlaces();
+    this.getPlaces();
+    // this.loadPlaces();
   },
   computed: {
-    ...mapState(['message']),
+    ...mapState(['message', 'places']),
   },
   created() {
     this.setMessage('ezt mar actionon keresztul settelem');
   },
   methods: {
-    ...mapActions(['setMessage']),
+    ...mapActions(['setMessage', 'getPlaces']),
     toggleInfoWindow: (marker, idx) => {
       this.infoWindowPos = marker.position;
       this.infoContent = marker.infoText;
@@ -48,14 +49,14 @@ export default {
       }
     },
     loadPlaces() {
-      this.$http.get('http://localhost/api/v1/sample.json').then((data, status, request) => {
-        data.body.places.map((place, index, arr) => {
+      /* this.$http.get('http://localhost/api/v1/sample.json').then((data, status, request) => {
+        data.body.places.map((place) => {
           this.markers.push({
             position: { lat: place.latitude, lng: place.longitude },
             infoText: place.place_name,
           });
         });
-      });
+      }); */
     },
   },
 };

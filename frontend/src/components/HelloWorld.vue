@@ -8,6 +8,7 @@
       </h1>
     </div>
     <GmapMap
+      v-if="markes.length > 0"
       :center="center"
       :zoom="16"
       map-type-id="roadmap"
